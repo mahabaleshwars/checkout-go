@@ -20,11 +20,19 @@ jobs:
       - uses: actions/checkout@v4
       - id: goversion
         run: echo "goversion=$(cat .go-version)" >> "$GITHUB_OUTPUT"
+
+      - name: Look into the tool cache before setup-go
+        run: |
+          find /home/runner/actions-runner/_work/_tool/ -name go
       - uses: actions/setup-go@v4
         with:
           go-version: ${{ steps.goversion.outputs.goversion }}
           cache: false
           check-latest: false
+
+      - name: Look into the tool cache after setup-go
+        run: |
+          find /home/runner/actions-runner/_work/_tool/ -name go
 
       - name: Find where go was put
         run: |
