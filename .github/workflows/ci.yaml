@@ -12,11 +12,11 @@ on:
 permissions: read-all
 
 jobs:
-  test-linux:
+  test-setup-go:
     strategy:
       fail-fast: false
       matrix:
-        attempt: [1,2,3,4,5,6,7,8,9,10]
+        attempt: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
     runs-on: actuated-arm64-2cpu-4gb
     steps:
       - uses: actions/checkout@v4
@@ -40,7 +40,11 @@ jobs:
         run: |
           which go
 
+      - name: Run go version
+        run: |
+          go version
+
       - name: Run tests
         run: go test ./...
-      - name: golangci-lint
+      - name: Run golangci-lint
         uses: golangci/golangci-lint-action@3a919529898de77ec3da873e3063ca4b10e7f5cc # v3.7.0
