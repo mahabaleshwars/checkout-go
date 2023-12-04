@@ -25,16 +25,16 @@ jobs:
 
       - name: Look into the tool cache before setup-go
         run: |
-          find /home/runner/actions-runner/_work/_tool/ -name go | grep bin || echo "go binary not find in _tool folder"
+          find /home/runner/actions-runner/_work/_tool/ -name go | grep bin || echo "go binary not found in _tool folder"
       - uses: actions/setup-go@v4
         with:
           go-version: ${{ steps.goversion.outputs.goversion }}
-          cache: false
+          cache: true
           check-latest: false
 
       - name: Look into the tool cache after setup-go
         run: |
-          find /home/runner/actions-runner/_work/_tool/ -name go | grep bin  || echo "go binary not find in _tool folder"
+          find /home/runner/actions-runner/_work/_tool/ -name go | grep bin  || echo "go binary not found in _tool folder"
 
       - name: Find where go was put
         run: |
