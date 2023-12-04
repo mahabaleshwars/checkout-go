@@ -30,7 +30,7 @@ jobs:
       - uses: actions/setup-go@v4
         with:
           go-version: ${{ steps.goversion.outputs.goversion }}
-          cache: true
+          cache: false
           check-latest: false
 
       - name: Look into the tool cache after setup-go
