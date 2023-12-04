@@ -23,6 +23,9 @@ jobs:
       - uses: actions/setup-go@v4
         with:
           go-version: ${{ steps.goversion.outputs.goversion }}
+          cache: false
+          check-latest: false
+
       - name: Run tests
         run: go test ./...
       - name: golangci-lint
