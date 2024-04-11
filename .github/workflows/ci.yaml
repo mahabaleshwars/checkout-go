@@ -20,14 +20,14 @@ jobs:
         #,11,12,13,14,15,16,17,18,19,20]
     runs-on: actuated-arm64-2cpu-4gb
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v4
       - id: goversion
         run: echo "goversion=$(cat .go-version)" >> "$GITHUB_OUTPUT"
 
       - name: Look into the tool cache before setup-go
         run: |
           sudo find / -name go | grep bin || echo "go binary not found in root"
-      - uses: actions/setup-go@v4
+      - uses: actions/setup-go@v5
         with:
           go-version: ${{ steps.goversion.outputs.goversion }}
           cache: true
