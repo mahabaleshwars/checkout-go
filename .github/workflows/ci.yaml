@@ -20,7 +20,7 @@ jobs:
         #,11,12,13,14,15,16,17,18,19,20]
     runs-on: actuated-arm64-2cpu-4gb
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - id: goversion
         run: echo "goversion=$(cat .go-version)" >> "$GITHUB_OUTPUT"
 
