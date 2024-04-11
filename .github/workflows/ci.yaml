@@ -44,6 +44,7 @@ jobs:
         run: |
           go version
 
+
       - name: Run tests
         run: go test ./...
       - name: Run golangci-lint
